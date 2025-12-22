@@ -17,7 +17,7 @@ class AuthService {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
             if(userAccount){
                 //call a method
-                this.logIn({email, password});
+                return await this.logIn({email, password});
             }
             else {
                 return userAccount;
@@ -45,8 +45,9 @@ class AuthService {
         }
         catch(error){
             console.log("Error getting current user:", error);
-            throw error;
+            return null;
         }
+
     }
 
     async logOut() {
