@@ -24,6 +24,7 @@ class AuthService {
             }
         }
         catch(error){
+            console.log("Error creating account:", error);
             throw error;
         }
     }
@@ -33,6 +34,7 @@ class AuthService {
             return await this.account.createEmailPasswordSession(email, password);
         }
         catch(error){
+            console.log("Error logging in:", error);
             throw error;
         }
     }
@@ -42,6 +44,7 @@ class AuthService {
             return await this.account.get();
         }
         catch(error){
+            console.log("Error getting current user:", error);
             throw error;
         }
     }
@@ -51,6 +54,7 @@ class AuthService {
             return await this.account.deleteSessions();
         }
         catch(error){
+            console.log("Error logging out:", error);
             throw error;
         }
     }
