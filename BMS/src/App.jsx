@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import authService from './appwrite/auth/auth';
 import {login,logout} from './store/authSlice';
 import {Header, Footer} from './components/index';
+import { Browser } from 'appwrite';
+import { BrowserRouter } from 'react-router-dom';
 
 
 function App() {
@@ -35,12 +37,14 @@ return loading ? (
     <h2>Loading...</h2>
   </div>
 ):(
+  <BrowserRouter>x
   <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
     <div className='w-full block'>
       <Header />
       <Footer />
     </div>
   </div>
+  </BrowserRouter>
 );
 }
 
