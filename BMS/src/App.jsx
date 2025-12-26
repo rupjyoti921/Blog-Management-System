@@ -37,7 +37,7 @@ return loading ? (
     <h2>Loading...</h2>
   </div>
 ):(
-  <BrowserRouter>x
+  <BrowserRouter>
   <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
     <div className='w-full block'>
       <Header />
