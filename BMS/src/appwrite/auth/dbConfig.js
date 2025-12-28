@@ -83,17 +83,18 @@ storage;
         }
     }
 
-    async getAllPosts(){
-        try{
-            return await this.databases.listDocuments(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
-            )
-        }
-        catch(error){
-            console.log("Error getting all posts:", error);
-            throw error;
-        }
+    async getAllPosts(queries = []) {
+    try {
+        return await this.databases.listDocuments(
+            conf.appwriteDatabaseId,
+            conf.appwriteCollectionId,
+            queries
+        );
+    } catch (error) {
+        console.log("Error getting posts:", error);
+        // Return empty array if unauthorized
+        return { documents: [], total: 0 };
+    }
     }
 
     async getAllActievPosts(queries = [Query.equal('status', 'active')]){

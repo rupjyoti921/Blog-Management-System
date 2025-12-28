@@ -40,14 +40,16 @@ class AuthService {
     }
 
     async getCurrentUser() {
-        try{
+    try {
+        const session = await this.account.getSession('current');
+        if (session) {
             return await this.account.get();
         }
-        catch(error){
-            console.log("Error getting current user:", error);
-            return null;
-        }
-
+        return null;
+    } catch (error) {
+        console.log("No active session");
+        return null;
+    }
     }
 
     async logOut() {
