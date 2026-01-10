@@ -20,11 +20,11 @@ storage;
                 conf.appwriteCollectionId,
                 slug,
                 {
-                    title,
-                    content,
-                    featuredImage,
-                    status,
-                    userId,
+                    Title: title,
+                    Content: content,
+                    FeaturedImage: featuredImage,
+                    Status: status,
+                    UserId: userId,
                 }
             );
         }
@@ -41,10 +41,10 @@ storage;
                 conf.appwriteCollectionId,
                 slug,
                 {
-                    title,
-                    content,
-                    featuredImage,
-                    status,
+                    Title: title,
+                    Content: content,
+                    FeaturedImage: featuredImage,
+                    Status: status,
                 }
             )
         }
@@ -141,10 +141,10 @@ storage;
     }
 
     getFilePreview(fileId){
-        return this.storage.getFilePreview(
+        return this.storage.getFileView(
             conf.appwriteBucketId,
             fileId
-        );
+        ).toString();
     }
 }
 
